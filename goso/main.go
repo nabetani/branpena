@@ -18,7 +18,7 @@ func measure(name string, data []uint, proc func(data []uint) int64) {
 	}
 	duration := time.Since(t0)
 	durSec := float64(duration.Nanoseconds()) * 1e-9
-	fmt.Printf("  %s: duration=%4.2fs  sum=%d\n", name, durSec, sum)
+	fmt.Printf("  %6s: duration=%4.2fs  sum=%d\n", name, durSec, sum)
 }
 
 func hoge(data []uint) int64 {
@@ -30,12 +30,39 @@ func hoge(data []uint) int64 {
 	}
 	return sum
 }
+
 func fuga(data []uint) int64 {
 	sum := int64(0)
 	for _, v := range data {
 		if 128 <= v {
 			sum += int64(v)
 		}
+	}
+	return sum
+}
+
+func fugao(data []uint) int64 {
+	sum := int64(0)
+	for _, v := range data {
+		sum += int64(v) & func() int64 {
+			if 128 <= v {
+				return 0xff
+			}
+			return 0
+		}()
+	}
+	return sum
+}
+func hogeo(data []uint) int64 {
+	sum := int64(0)
+	for c := 0; c < len(data); c++ {
+		v := data[c]
+		sum += int64(v) & func() int64 {
+			if 128 <= v {
+				return 0xff
+			}
+			return 0
+		}()
 	}
 	return sum
 }
@@ -66,11 +93,15 @@ func main() {
 			func(i, j int) { data[i], data[j] = data[j], data[i] })
 		fmt.Println("shuffled")
 		measure("hoge", data, hoge)
+		measure("hogeo", data, hogeo)
 		measure("fuga", data, fuga)
+		measure("fugao", data, fugao)
 		sort.Slice(data, //
 			func(i, j int) bool { return data[i] < data[j] })
 		fmt.Println("sorted")
 		measure("hoge", data, hoge)
+		measure("hogeo", data, hogeo)
 		measure("fuga", data, fuga)
+		measure("fugao", data, fugao)
 	}
 }
