@@ -9,30 +9,48 @@ class Javaso {
         return Integer.parseInt(args[0]);
     }
 
-    static long hoge( int[] d){
-        long sum=0;
-        for( int c=0 ; c<d.length ; ++c){
+    static long hoge(int[] d) {
+        long sum = 0;
+        for (int c = 0; c < d.length; ++c) {
             int v = d[c];
-            if (128<=v){
-                sum+=v;
+            if (128 <= v) {
+                sum += v;
             }
         }
         return sum;
     }
 
-    static void measure( 
-        String name,
-        int[] data,
-        Function<int[],Long> f )
-    {
-        long sum=0;
+    static long hogeo(int[] d) {
+        long sum = 0;
+        for (int c = 0; c < d.length; ++c) {
+            int v = d[c];
+            sum += (128 <= v ? 0xff : 0) & v;
+        }
+        return sum;
+    }
+
+    static long fuga(int[] d) {
+        long sum = 0;
+        for (int v : d) {
+            if (128 <= v) {
+                sum += v;
+            }
+        }
+        return sum;
+    }
+
+    static void measure(
+            String name,
+            int[] data,
+            Function<int[], Long> f) {
+        long sum = 0;
         long t0 = System.nanoTime();
-        for( int i=0 ; i<1000 ; ++i ){
+        for (int i = 0; i < 1000; ++i) {
             sum += f.apply(data);
         }
-        long duration = System.nanoTime()-t0;
-        double durSec = duration * 1e-9;
-        System.out.printf("  %6s: duration=%4.2fs  sum=%d\n", name, durSec, sum);
+        long duration = System.nanoTime() - t0;
+        double durMS = duration * 1e-6;
+        System.out.printf("    %-6s: duration=%7.2fms  sum=%d\n", name, durMS, sum);
 
     }
 
@@ -55,11 +73,24 @@ class Javaso {
         return d;
     }
 
+    static void runtest(int[] data ){
+        data = shuffle(data);
+        System.out.println("  shuffled");
+        measure("hoge", data, d -> hoge(d));
+        measure("hogeo", data, d -> hogeo(d));
+        measure("fuga", data, d -> fuga(d));
+        Arrays.sort(data);
+        System.out.println("  sorted");
+        measure("hoge", data, d -> hoge(d));
+        measure("hogeo", data, d -> hogeo(d));
+        measure("fuga", data, d -> fuga(d));
+    }
+
     public static void main(String[] args) {
         int[] data = makeData(args);
-        for (int i = 0; i < 2; ++i) {
-            data = shuffle(data);
+        for( int i=0 ; i<10000 ; ++i ){
+            System.out.printf("i=%d\n", i);
+            runtest(data);
         }
-        measure("hoge", data, d->hoge(d));
     }
 }
