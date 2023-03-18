@@ -1,0 +1,24 @@
+shuffled
+      simple: duration= 9.84s  sum=287241824000
+         dry: duration= 1.87s  sum=287241824000
+       range: duration= 1.87s  sum=287241824000
+   opt-range: duration= 1.47s  sum=287241824000
+  opt-simple: duration= 1.48s  sum=287241824000
+sorted
+      simple: duration= 0.94s  sum=287241824000
+         dry: duration= 1.87s  sum=287241824000
+       range: duration= 1.87s  sum=287241824000
+   opt-range: duration= 1.47s  sum=287241824000
+  opt-simple: duration= 1.47s  sum=287241824000
+shuffled
+      simple: duration= 9.84s  sum=287241824000
+         dry: duration= 1.87s  sum=287241824000
+       range: duration= 1.87s  sum=287241824000
+   opt-range: duration= 1.47s  sum=287241824000
+  opt-simple: duration= 1.47s  sum=287241824000
+sorted
+      simple: duration= 0.94s  sum=287241824000
+         dry: duration= 1.87s  sum=287241824000
+       range: duration= 1.87s  sum=287241824000
+   opt-range: duration= 1.48s  sum=287241824000
+  opt-simple: duration= 1.47s  sum=287241824000

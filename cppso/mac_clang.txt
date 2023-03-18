@@ -1,0 +1,12 @@
+shuffled
+      simple: duration= 1.20s  sum=957487744000
+     foreach: duration= 1.18s  sum=957487744000
+sorted
+      simple: duration= 1.18s  sum=957487744000
+     foreach: duration= 1.18s  sum=957487744000
+shuffled
+      simple: duration= 1.18s  sum=957487744000
+     foreach: duration= 1.18s  sum=957487744000
+sorted
+      simple: duration= 1.20s  sum=957487744000
+     foreach: duration= 1.18s  sum=957487744000
