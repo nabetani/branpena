@@ -1,0 +1,25 @@
+>win_amd64 1000000
+shuffled
+      simple: duration= 4.52s  sum=95743872000
+         dry: duration= 0.93s  sum=95743872000
+       range: duration= 0.95s  sum=95743872000
+   opt-range: duration= 1.08s  sum=95743872000
+  opt-simple: duration= 1.09s  sum=95743872000
+sorted
+      simple: duration= 0.74s  sum=95743872000
+         dry: duration= 0.96s  sum=95743872000
+       range: duration= 0.96s  sum=95743872000
+   opt-range: duration= 1.08s  sum=95743872000
+  opt-simple: duration= 1.08s  sum=95743872000
+shuffled
+      simple: duration= 4.56s  sum=95743872000
+         dry: duration= 0.94s  sum=95743872000
+       range: duration= 0.94s  sum=95743872000
+   opt-range: duration= 1.09s  sum=95743872000
+  opt-simple: duration= 1.09s  sum=95743872000
+sorted
+      simple: duration= 0.80s  sum=95743872000
+         dry: duration= 0.94s  sum=95743872000
+       range: duration= 0.96s  sum=95743872000
+   opt-range: duration= 1.11s  sum=95743872000
+  opt-simple: duration= 1.08s  sum=95743872000

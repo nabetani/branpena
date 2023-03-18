@@ -1,0 +1,1 @@
+cl /O2 /Ox /Ot /EHsc /arch:AVX512 /std:c++17 /utf-8 /Wall main.cpp && main 1000000
