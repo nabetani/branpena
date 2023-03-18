@@ -29,28 +29,46 @@ size_t getSize(int argc, char const *argv[])
     return size_t(std::atoll(argv[1]));
 }
 
-int64_t simple( std::vector<uint> const & data ){
-    int64_t sum=0;
-    for( size_t i=0, size=data.size() ; i<size; ++i ){
-        if (128<=data[i]){
+int64_t simple(std::vector<uint> const &data)
+{
+    int64_t sum = 0;
+    for (size_t i = 0, size = data.size(); i < size; ++i)
+    {
+        if (128 <= data[i])
+        {
             sum += data[i];
         }
     }
     return sum;
 }
 
-template< typename proc_t >//
-void measure( char const * name, std::vector<uint> const & data, proc_t const & proc ){
+int64_t foreach (std::vector<uint> const &data)
+{
+    int64_t sum = 0;
+    for (auto const &v : data)
+    {
+        if (128 <= v)
+        {
+            sum += v;
+        }
+    }
+    return sum;
+}
+
+template <typename proc_t> //
+void measure(char const *name, std::vector<uint> const &data, proc_t const &proc)
+{
     using clock = chrono::high_resolution_clock;
     using namespace std::chrono_literals;
-    int64_t sum=0;
+    int64_t sum = 0;
     auto t0 = clock::now();
-    for( int i=0 ; i<1000 ; ++i ){
+    for (int i = 0; i < 1000; ++i)
+    {
         sum += proc(data);
-    }    
+    }
     auto dur = clock::now() - t0;
     auto durSec = (dur / 1ns) * 1e-9;
-    printf( "  %10s: duration=%5.2fs  sum=%lld\n", name, durSec, (long long)sum );
+    printf("  %10s: duration=%5.2fs  sum=%lld\n", name, durSec, (long long)sum);
 }
 
 int main(int argc, char const *argv[])
@@ -60,10 +78,12 @@ int main(int argc, char const *argv[])
     for (int i = 0; i < 2; ++i)
     {
         std::shuffle(data.begin(), data.end(), rng);
+        puts("shuffled");
+        measure("simple", data, simple);
+        measure("foreach", data, foreach);
+        std::sort(data.begin(), data.end());
+        puts("sorted");
+        measure("simple", data, simple);
+        measure("foreach", data, foreach);
     }
-    puts("shuffled");
-    measure( "simple", data, simple);
-    std::sort( data.begin(), data.end());
-    puts("sorted");
-    measure( "simple", data, simple);
 }
