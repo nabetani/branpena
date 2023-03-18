@@ -1,0 +1,25 @@
+>win_386 1000000
+shuffled
+      simple: duration= 5.33s  sum=95743872000
+         dry: duration= 5.36s  sum=95743872000
+       range: duration= 5.32s  sum=95743872000
+   opt-range: duration= 4.91s  sum=95743872000
+  opt-simple: duration= 5.59s  sum=95743872000
+sorted
+      simple: duration= 1.05s  sum=95743872000
+         dry: duration= 1.06s  sum=95743872000
+       range: duration= 0.74s  sum=95743872000
+   opt-range: duration= 1.04s  sum=95743872000
+  opt-simple: duration= 1.02s  sum=95743872000
+shuffled
+      simple: duration= 5.35s  sum=95743872000
+         dry: duration= 5.41s  sum=95743872000
+       range: duration= 5.25s  sum=95743872000
+   opt-range: duration= 4.87s  sum=95743872000
+  opt-simple: duration= 5.54s  sum=95743872000
+sorted
+      simple: duration= 1.06s  sum=95743872000
+         dry: duration= 1.10s  sum=95743872000
+       range: duration= 0.77s  sum=95743872000
+   opt-range: duration= 1.04s  sum=95743872000
+  opt-simple: duration= 1.02s  sum=95743872000

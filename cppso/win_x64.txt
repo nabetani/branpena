@@ -1,0 +1,14 @@
+/out:main.exe
+main.obj
+shuffled
+      simple: duration= 4.42s  sum=95743872000
+     foreach: duration= 4.37s  sum=95743872000
+sorted
+      simple: duration= 0.89s  sum=95743872000
+     foreach: duration= 0.87s  sum=95743872000
+shuffled
+      simple: duration= 4.39s  sum=95743872000
+     foreach: duration= 4.38s  sum=95743872000
+sorted
+      simple: duration= 0.89s  sum=95743872000
+     foreach: duration= 0.87s  sum=95743872000
