@@ -1,15 +1,21 @@
 
-/out:main.exe
-main.obj
 shuffled
-      simple: duration= 4.37s  sum=95743872000
-     foreach: duration= 4.42s  sum=95743872000
+       simple: duration= 4.59s  sum=95743872000
+      foreach: duration= 4.59s  sum=95743872000
+   opt-simple: duration= 0.73s  sum=95743872000
+  opt-foreach: duration= 0.80s  sum=95743872000
 sorted
-      simple: duration= 0.67s  sum=95743872000
-     foreach: duration= 0.91s  sum=95743872000
+       simple: duration= 0.78s  sum=95743872000
+      foreach: duration= 0.77s  sum=95743872000
+   opt-simple: duration= 0.73s  sum=95743872000
+  opt-foreach: duration= 0.80s  sum=95743872000
 shuffled
-      simple: duration= 4.35s  sum=95743872000
-     foreach: duration= 4.51s  sum=95743872000
+       simple: duration= 4.63s  sum=95743872000
+      foreach: duration= 4.60s  sum=95743872000
+   opt-simple: duration= 0.73s  sum=95743872000
+  opt-foreach: duration= 0.82s  sum=95743872000
 sorted
-      simple: duration= 0.67s  sum=95743872000
-     foreach: duration= 0.91s  sum=95743872000
+       simple: duration= 0.78s  sum=95743872000
+      foreach: duration= 0.78s  sum=95743872000
+   opt-simple: duration= 0.73s  sum=95743872000
+  opt-foreach: duration= 0.80s  sum=95743872000
