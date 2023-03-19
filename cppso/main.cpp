@@ -41,6 +41,16 @@ int64_t simple(std::vector<uint> const &data)
     }
     return sum;
 }
+int64_t opt_simple(std::vector<uint> const &data)
+{
+    int64_t sum = 0;
+    for (size_t i = 0, size = data.size(); i < size; ++i)
+    {
+        auto v = data[i];
+        sum += ((v < 128) - 1) & v;
+    }
+    return sum;
+}
 
 int64_t foreach (std::vector<uint> const &data)
 {
@@ -51,6 +61,15 @@ int64_t foreach (std::vector<uint> const &data)
         {
             sum += v;
         }
+    }
+    return sum;
+}
+int64_t opt_foreach(std::vector<uint> const &data)
+{
+    int64_t sum = 0;
+    for (auto const &v : data)
+    {
+        sum += ((v < 128) - 1) & v;
     }
     return sum;
 }
@@ -68,7 +87,7 @@ void measure(char const *name, std::vector<uint> const &data, proc_t const &proc
     }
     auto dur = clock::now() - t0;
     auto durSec = (dur / 1ns) * 1e-9;
-    printf("  %10s: duration=%5.2fs  sum=%lld\n", name, durSec, (long long)sum);
+    printf("  %11s: duration=%5.2fs  sum=%lld\n", name, durSec, (long long)sum);
 }
 
 int main(int argc, char const *argv[])
@@ -81,9 +100,13 @@ int main(int argc, char const *argv[])
         puts("shuffled");
         measure("simple", data, simple);
         measure("foreach", data, foreach);
+        measure("opt-simple", data, opt_simple);
+        measure("opt-foreach", data, opt_foreach);
         std::sort(data.begin(), data.end());
         puts("sorted");
         measure("simple", data, simple);
         measure("foreach", data, foreach);
+        measure("opt-simple", data, opt_simple);
+        measure("opt-foreach", data, opt_foreach);
     }
 }
