@@ -1,0 +1,20 @@
+shuffled
+       simple: duration= 1.19s  sum=957487744000
+      foreach: duration= 1.19s  sum=957487744000
+   opt-simple: duration= 1.18s  sum=957487744000
+  opt-foreach: duration= 1.18s  sum=957487744000
+sorted
+       simple: duration= 1.18s  sum=957487744000
+      foreach: duration= 1.18s  sum=957487744000
+   opt-simple: duration= 1.18s  sum=957487744000
+  opt-foreach: duration= 1.18s  sum=957487744000
+shuffled
+       simple: duration= 1.18s  sum=957487744000
+      foreach: duration= 1.18s  sum=957487744000
+   opt-simple: duration= 1.18s  sum=957487744000
+  opt-foreach: duration= 1.18s  sum=957487744000
+sorted
+       simple: duration= 1.18s  sum=957487744000
+      foreach: duration= 1.18s  sum=957487744000
+   opt-simple: duration= 1.18s  sum=957487744000
+  opt-foreach: duration= 1.18s  sum=957487744000
